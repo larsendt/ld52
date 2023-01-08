@@ -1,0 +1,57 @@
+[gd_scene load_steps=8 format=3 uid="uid://duefbst428jfd"]
+
+[ext_resource type="Script" path="res://plants/garden_bed.gd" id="1_e35dt"]
+[ext_resource type="Texture2D" uid="uid://ucrwnotxg6mu" path="res://assets/sprites/garden_bed.png" id="1_qthw1"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_mm121"]
+atlas = ExtResource("1_qthw1")
+region = Rect2(0, 0, 40, 10)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_l7fpb"]
+atlas = ExtResource("1_qthw1")
+region = Rect2(40, 0, 40, 10)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_awh2a"]
+atlas = ExtResource("1_qthw1")
+region = Rect2(80, 0, 40, 10)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_mgjr8"]
+animations = [{
+"frames": [SubResource("AtlasTexture_mm121"), SubResource("AtlasTexture_l7fpb"), SubResource("AtlasTexture_awh2a")],
+"loop": true,
+"name": &"default",
+"speed": 2.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_s3x7j"]
+size = Vector2(40, 10)
+
+[node name="GardenBed" type="StaticBody2D"]
+script = ExtResource("1_e35dt")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+frames = SubResource("SpriteFrames_mgjr8")
+playing = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_s3x7j")
+
+[node name="PlantSpawns" type="Node2D" parent="."]
+
+[node name="Node2D" type="Node2D" parent="PlantSpawns"]
+position = Vector2(-15, -5)
+
+[node name="Node2D3" type="Node2D" parent="PlantSpawns"]
+position = Vector2(-10, -5)
+
+[node name="Node2D4" type="Node2D" parent="PlantSpawns"]
+position = Vector2(-4, -5)
+
+[node name="Node2D6" type="Node2D" parent="PlantSpawns"]
+position = Vector2(3, -5)
+
+[node name="Node2D7" type="Node2D" parent="PlantSpawns"]
+position = Vector2(9, -5)
+
+[node name="Node2D8" type="Node2D" parent="PlantSpawns"]
+position = Vector2(15, -5)

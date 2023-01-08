@@ -1,0 +1,31 @@
+[gd_scene load_steps=7 format=3 uid="uid://bb0enrgs1xs6y"]
+
+[ext_resource type="Texture2D" uid="uid://bs4qc58d4mp8w" path="res://assets/sprites/blinky_pole.png" id="1_onatd"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_a1wtk"]
+atlas = ExtResource("1_onatd")
+region = Rect2(0, 0, 9, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_a45r0"]
+atlas = ExtResource("1_onatd")
+region = Rect2(9, 0, 9, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_p82fy"]
+atlas = ExtResource("1_onatd")
+region = Rect2(18, 0, 9, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ap0h6"]
+atlas = ExtResource("1_onatd")
+region = Rect2(27, 0, 9, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_7ulo7"]
+animations = [{
+"frames": [SubResource("AtlasTexture_a1wtk"), SubResource("AtlasTexture_a45r0"), SubResource("AtlasTexture_p82fy"), SubResource("AtlasTexture_ap0h6")],
+"loop": true,
+"name": &"default",
+"speed": 1.0
+}]
+
+[node name="BlinkyPole" type="AnimatedSprite2D"]
+frames = SubResource("SpriteFrames_7ulo7")
+playing = true

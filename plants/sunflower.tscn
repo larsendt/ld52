@@ -1,0 +1,47 @@
+[gd_scene load_steps=9 format=3 uid="uid://c1bktwywd2tsj"]
+
+[ext_resource type="Texture2D" uid="uid://bk5ifiwgdbsvm" path="res://assets/sprites/sunflower.png" id="1_4cxdh"]
+[ext_resource type="Script" path="res://plants/sunflower.gd" id="1_4k4dk"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_uy0se"]
+atlas = ExtResource("1_4cxdh")
+region = Rect2(0, 0, 5, 5)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6lonx"]
+atlas = ExtResource("1_4cxdh")
+region = Rect2(5, 0, 5, 5)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_r7ti7"]
+atlas = ExtResource("1_4cxdh")
+region = Rect2(10, 0, 5, 5)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_p1ow0"]
+atlas = ExtResource("1_4cxdh")
+region = Rect2(15, 0, 5, 5)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_vmmoo"]
+animations = [{
+"frames": [SubResource("AtlasTexture_uy0se"), SubResource("AtlasTexture_6lonx"), SubResource("AtlasTexture_r7ti7"), SubResource("AtlasTexture_p1ow0")],
+"loop": true,
+"name": &"default",
+"speed": 2.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_aw26g"]
+size = Vector2(5, 4.5)
+
+[node name="Sunflower" type="Node2D"]
+position = Vector2(0, -2)
+script = ExtResource("1_4k4dk")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+frames = SubResource("SpriteFrames_vmmoo")
+playing = true
+
+[node name="HarvestArea" type="Area2D" parent="."]
+collision_layer = 2
+collision_mask = 0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="HarvestArea"]
+position = Vector2(-0.5, -0.25)
+shape = SubResource("RectangleShape2D_aw26g")

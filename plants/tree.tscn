@@ -1,0 +1,44 @@
+[gd_scene load_steps=9 format=3 uid="uid://deklk0dxkov2r"]
+
+[ext_resource type="Script" path="res://plants/tree.gd" id="1_klgf4"]
+[ext_resource type="Texture2D" uid="uid://ccp551832b34n" path="res://assets/sprites/tree.png" id="2_d38fd"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_prajq"]
+radius = 8.0
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_i6fay"]
+atlas = ExtResource("2_d38fd")
+region = Rect2(0, 0, 17, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5wf0p"]
+atlas = ExtResource("2_d38fd")
+region = Rect2(17, 0, 17, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_pue3j"]
+atlas = ExtResource("2_d38fd")
+region = Rect2(34, 0, 17, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4xxmx"]
+atlas = ExtResource("2_d38fd")
+region = Rect2(51, 0, 17, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_1xdrk"]
+animations = [{
+"frames": [SubResource("AtlasTexture_i6fay"), SubResource("AtlasTexture_5wf0p"), SubResource("AtlasTexture_pue3j"), SubResource("AtlasTexture_4xxmx")],
+"loop": true,
+"name": &"default",
+"speed": 2.0
+}]
+
+[node name="Tree" type="Node2D"]
+position = Vector2(0, -12)
+script = ExtResource("1_klgf4")
+
+[node name="HarvestShape" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="HarvestShape"]
+shape = SubResource("CapsuleShape2D_prajq")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+frames = SubResource("SpriteFrames_1xdrk")
+playing = true
